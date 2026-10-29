@@ -7,7 +7,7 @@
 
 ## Package responsibilities
 
-apps/web owns the user interface for entering tactical instructions, so that users can review animations.
+apps/web owns the user interface and server-side request handling for parsing instructions, saving and retrieving projects, and requesting exports.
 
 apps/worker owns processing export jobs, so that users receive MP4 export video.
 
@@ -20,6 +20,7 @@ packages/parser owns converting written football instructions into structured ac
 packages/db owns database access, so that projects and squad information can be saved and retrieved
 
 ## Import boundaries
+
 An arrow means “imports from.”
 
 ### Allowed imports
@@ -82,5 +83,5 @@ An arrow means “imports from.”
     Reason: shared packages must not import applications because that would tie reusable logic to application-specific code and make it harder to use independently.
 
 
-### Umlisted imports
+### Unlisted imports
 Unlisted workspace imports are forbidden until reviewed and added to the allowed-import list.
