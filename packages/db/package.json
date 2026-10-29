@@ -1,0 +1,19 @@
+{
+  "name": "@tactics/db",
+  "version": "1.0.0",
+  "private": true,
+  "description": "owns database access, so that projects and squad information can be saved and retrieved",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.16.1",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.16.1",
+  "type": "module"
+}

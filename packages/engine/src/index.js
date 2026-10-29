@@ -1,0 +1,1 @@
+export const template_constant = "template_constant";

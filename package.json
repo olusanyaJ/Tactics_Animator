@@ -1,0 +1,25 @@
+{
+  "name": "tactics-animator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "",
+  "engines": {
+    "node": "^24.22.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.16.1",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.16.1",
+  "type": "module"
+}

@@ -1,0 +1,19 @@
+.DS_Store
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Next.js build output
+.next
+out
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+.output
+
+# dotenv environment variable files
+.env
+.env.*
+!.env.example

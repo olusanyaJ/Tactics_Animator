@@ -1,0 +1,25 @@
+{
+  "name": "@tactics/engine",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./src/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
+    }
+  },
+  "description": "owns calculating player movement between points, so that the browser preview and exported video use the same calculation",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.16.1",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.16.1",
+  "type": "module"
+}
