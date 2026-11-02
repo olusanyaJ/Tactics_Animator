@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
+  "dependencies": {
+    "@tactics/schema": "workspace:*"
+  },
   "main": "",
   "engines": {
     "node": "^24.22.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "typecheck": "tsc --project tsconfig.json && pnpm -r typecheck",
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test",
+    "check:engine": "node apps/web/src/server/check-engine.ts"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +30,16 @@
     }
   },
   "packageManager": "pnpm@12.16.1",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.19.2",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.5.0",
+    "prettier": "^3.9.10",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^4.1.12"
+  }
 }

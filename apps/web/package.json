@@ -3,15 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "description": "owns the user interface for entering tactical instructions, so that users can review animations ",
-  "scripts": {},
-
-  
+  "scripts": {
+    "typecheck": "tsc --project tsconfig.json && tsc --project tsconfig.test.json && tsc --project tsconfig.server.json"
+  },
   "//": "This is a single-line comment about the dependencies below, the web package needs the engine package from this local workspace",
   "dependencies": {
     "@tactics/engine": "workspace:*"
   },
-
-
   "keywords": [],
   "author": "",
   "license": "MIT",

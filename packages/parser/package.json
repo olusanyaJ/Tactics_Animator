@@ -2,8 +2,13 @@
   "name": "@tactics/parser",
   "version": "1.0.0",
   "private": true,
+  "dependencies": {
+    "@tactics/schema": "workspace:*"
+  },
   "description": "owns converting written football instructions into structured actions, so that the engine can process them ",
-  "scripts": {},
+  "scripts": {
+    "typecheck": "tsc --project tsconfig.json && tsc --project tsconfig.test.json"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT",
@@ -17,4 +22,3 @@
   "packageManager": "pnpm@12.16.1",
   "type": "module"
 }
-

@@ -1,4 +1,5 @@
 ## Golden Rules
+
 - Engine packages must never import applications, parser, or database packages.
 
 - Engine may import @tactics/schema for shared data definitions and validation.

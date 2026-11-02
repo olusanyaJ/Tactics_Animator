@@ -1,6 +1,7 @@
 # Tactics Animator Agent Instructions
 
 ## Golden rules
+
 - Before changing or reviewing code, read docs/decisions.md and follow its package ownership and import boundaries.
 
 - Before declaring work complete, run the relevant available checks listed under Commands. If a check fails or is unavailable, report the failure and do not claim completion.
@@ -18,6 +19,7 @@
 - Do not treat a dependency declaration as permission to violate an architectural boundary.
 
 ## Secret rules
+
 - Never read, print, or copy real credentials into project files, prompts, logs, or Git history.
 
 - Use placeholders in example configuration.
@@ -35,26 +37,24 @@
 
 ## Commands
 
-- Run these commands from the repository root.
+Run these commands from the repository root using the Node version in `.nvmrc` and the pinned pnpm version.
 
-- Run pnpm install only when dependency setup or dependency changes require it. It is not a routine completion check.
+- `pnpm install`: dependency setup only when needed; network access follows the configured approval process.
+- `pnpm list -r --depth -1`: list all six workspace projects and the root.
+- `pnpm typecheck`: check root tooling plus source and Node-based tests in all six workspace projects, including Web server source.
+- `pnpm lint`: check JavaScript and TypeScript without modifying files; warnings fail.
+- `pnpm format`: format supported project files. This modifies files; use only within authorized scope.
+- `pnpm format:check`: check formatting without modifying files.
+- `pnpm test`: run Vitest once across all six workspace projects. An empty suite fails and does not establish test coverage. Package smoke tests belong to Task 005.
+- `pnpm check`: run typecheck, lint, format:check, and test in order; stop on the first failure.
+- `pnpm check:engine`: run the TypeScript Web-to-Engine import demonstration in apps/web/src/server/check-engine.ts. Expected output: template_constant.
+- `git status --short --untracked-files=all`: review changed and untracked files before staging or committing.
 
-- `pnpm install`
-  Installs workspace dependencies and links declared local package dependencies.
-  May require network access; follow the configured approval process.
+The shared TypeScript base preserves the six selected strictness flags and provides only ES2023 globals with `types: []`. NodeNext ESM resolution, no emit, and erasable TypeScript support the current Node runtime without adding a build system.
 
-- `pnpm list -r --depth -1`
-  Lists workspace projects so package names and locations can be checked.
+Web source is browser code by default (DOM libraries, no Node types); `apps/web/src/server/` is checked separately with Node types. Engine and Schema source use the environment-neutral base. Worker, Parser, and DB source use `tsconfig.node.json`. Every package checks Node-based tests separately using `tsconfig.test.json`. Keep Node test helpers in `tests/` or test/spec files, not portable source. Root `tsconfig.json` checks TypeScript tooling and JavaScript configuration files with Node types. Empty projects include their package manifest; this is not proof of tested behavior.
 
-- `node apps/web/src/check-engine.js`
-  Checks that web can import and use the engine's named export.
-  Expected output: template_constant.
-
-- `git status --short --untracked-files=all`
-  Shows changed and untracked files for review before staging or committing.
-
-Lint, TypeScript checking, and automated tests are not configured yet.
-Do not claim these checks passed. Update this section as they are added.
+ESLint scopes Node globals to server source, root configs, and tests; browser globals apply only to Web source outside server/tests. Browser and portable Engine/Schema source reject Node built-in imports and direct Node-only globals. Prettier owns formatting, with eslint-config-prettier last. Vitest uses the Node environment; browser-specific tests need a deliberate environment choice later. These checks do not enforce all architectural import boundaries or prevent Node ambient types introduced by dependencies; docs/decisions.md still governs workspace imports. TypeScript excludes control initial files, not the transitive import graph. Node tests can import shared source, but that source must also pass its separate environment-neutral check.
 
 ## Human and agent responsibilities
 

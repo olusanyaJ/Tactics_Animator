@@ -2,8 +2,13 @@
   "name": "@tactics/worker",
   "version": "1.0.0",
   "private": true,
+  "dependencies": {
+    "@tactics/engine": "workspace:*"
+  },
   "description": "owns processing export jobs, so that users receive MP4 export video ",
-  "scripts": {},
+  "scripts": {
+    "typecheck": "tsc --project tsconfig.json && tsc --project tsconfig.test.json"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT",

@@ -1,4 +1,5 @@
 ## Golden Rules
+
 - Parser converts written football instructions into structured actions.
 - Parser may import @tactics/schema for shared definitions and validation.
 - Parser must never import engine, database, or application packages.
