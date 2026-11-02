@@ -42,14 +42,14 @@ The current Parser accepts a supplied callback and validates its returned moveme
 
 ## Package responsibilities
 
-| Package | Responsibility |
-| --- | --- |
-| `apps/web` | User interface and server-side request handling |
-| `apps/worker` | Export job processing and rendering orchestration |
-| `packages/engine` | Movement calculations |
-| `packages/schema` | Shared data definitions and validation |
+| Package           | Responsibility                                       |
+| ----------------- | ---------------------------------------------------- |
+| `apps/web`        | User interface and server-side request handling      |
+| `apps/worker`     | Export job processing and rendering orchestration    |
+| `packages/engine` | Movement calculations                                |
+| `packages/schema` | Shared data definitions and validation               |
 | `packages/parser` | Written instructions to validated structured actions |
-| `packages/db` | Database access and permission checks |
+| `packages/db`     | Database access and permission checks                |
 
 ## Architectural boundaries
 
@@ -107,12 +107,12 @@ Actual database persistence and authentication remain future work. Invited edito
 
 ## Tooling
 
-| Tool | Purpose |
-| --- | --- |
-| TypeScript | Strict type checking |
-| ESLint | Code quality checks |
-| Prettier | Consistent formatting |
-| Vitest | Automated tests |
+| Tool            | Purpose                                         |
+| --------------- | ----------------------------------------------- |
+| TypeScript      | Strict type checking                            |
+| ESLint          | Code quality checks                             |
+| Prettier        | Consistent formatting                           |
+| Vitest          | Automated tests                                 |
 | pnpm workspaces | Dependency management and local package linking |
 
 The project currently uses Node’s TypeScript support without an application build system.
@@ -150,16 +150,16 @@ Docker is not required for the current smoke tests.
 
 Run these from the repository root:
 
-| Command | Purpose |
-| --- | --- |
-| `pnpm typecheck` | Check root tooling and all workspace source and tests |
-| `pnpm lint` | Run ESLint; warnings fail |
-| `pnpm format` | Format supported project files |
-| `pnpm format:check` | Check formatting without modifying files |
-| `pnpm test` | Run the automated tests once |
-| `pnpm check` | Run typechecking, lint, formatting checks, and tests |
-| `pnpm check:engine` | Run the Web-to-Engine import demonstration |
-| `git diff --check` | Check the diff for whitespace errors |
+| Command             | Purpose                                               |
+| ------------------- | ----------------------------------------------------- |
+| `pnpm typecheck`    | Check root tooling and all workspace source and tests |
+| `pnpm lint`         | Run ESLint; warnings fail                             |
+| `pnpm format`       | Format supported project files                        |
+| `pnpm format:check` | Check formatting without modifying files              |
+| `pnpm test`         | Run the automated tests once                          |
+| `pnpm check`        | Run typechecking, lint, formatting checks, and tests  |
+| `pnpm check:engine` | Run the Web-to-Engine import demonstration            |
+| `git diff --check`  | Check the diff for whitespace errors                  |
 
 The import demonstration should print `template_constant`.
 
