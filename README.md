@@ -16,8 +16,9 @@ The workspace foundation and initial smoke tests are complete:
 - Worker frame delegation using a supplied renderer callback.
 - Owner-only save permission checks using fake storage callbacks.
 - A Web-to-Engine import smoke test.
+- GitHub Actions CI and required pull request checks, with human-reported enforcement verification recorded in [the agent log](docs/agent-log.md#human-reported-verification--pr-1).
 
-Real AI interpretation, browser preview, authentication, database persistence, video export, and CI enforcement are not implemented yet.
+Real AI interpretation, browser preview, authentication, database persistence, and video export are not implemented yet.
 
 ## Why I’m building it
 
@@ -127,7 +128,7 @@ The broader design proposes Next.js and React, tRPC, Zod, Canvas 2D, Postgres, a
 
 These are planned components, not the current installed application stack. The database ORM remains undecided.
 
-Linux hosting, deployment automation, browser tests, and GitHub Actions are also future work.
+Linux hosting, deployment automation, and browser tests are also future work.
 
 ## Getting started
 
@@ -169,7 +170,7 @@ The current suite contains 19 tests across six packages. It checks movement vali
 
 These tests establish the initial behavior and verify the tooling. They do not establish a working AI service, database, browser application, or video export pipeline.
 
-CI and branch protection will be configured separately so pull requests must pass the required checks before merging.
+GitHub Actions CI is implemented in `.github/workflows/ci.yml` and runs `pnpm check` for pull requests targeting main and pushes to main. Branch protection is configured separately on GitHub. The human reports verifying in [PR #1](https://github.com/olusanyaJ/Tactics_Animator/pull/1) that failing CI blocked merging and passing CI allowed it. This records enforcement at that time, not a guarantee that settings remain unchanged; see [the verification record](docs/agent-log.md#human-reported-verification--pr-1).
 
 ## Working with an AI agent
 
@@ -184,7 +185,7 @@ Secrets stay outside the repository. Network access follows the configured appro
 - [x] Create the workspace and document package boundaries.
 - [x] Add strict TypeScript, linting, formatting, and test tooling.
 - [x] Add initial behavior and smoke tests across all six packages.
-- [ ] Configure CI and required pull request checks.
+- [x] Configure CI and required pull request checks.
 - [ ] Build formations, action handling, and browser preview.
 - [ ] Integrate AI parsing and an evaluation set.
 - [ ] Add advanced actions, overlays, and corrections.
