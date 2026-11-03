@@ -33,6 +33,6 @@ test('rejects saving a missing project', async () => {
   const saveSpy = vi.fn(async () => {});
   const result = await saveProject('project-1', 'user-1', ownerLookup, saveSpy);
 
-  expect(result).toEqual({ ok: false, reason: 'forbidden' });
+  expect(result).toEqual({ ok: false, reason: 'not-found' });
   expect(saveSpy).not.toHaveBeenCalled();
 });
