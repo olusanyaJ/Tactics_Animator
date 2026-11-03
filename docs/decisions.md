@@ -119,3 +119,17 @@ Example:
   "to": { "x": 20, "y": 40 }
 }
 ```
+
+## Main branch protection — solo workflow
+
+The recorded policy for `main` is:
+
+- Changes require a pull request.
+- The GitHub Actions `check` job in `.github/workflows/ci.yml` is a required status check. It runs the existing `pnpm check` command.
+- The branch being merged must be up to date with `main` before merging.
+- Review conversations must be resolved before merging.
+- Bypassing these requirements is disabled.
+- Force pushes and branch deletion are disallowed.
+- Approving reviews are not required for the current solo workflow. Human review of agent changes remains a project responsibility under `AGENTS.md`.
+
+Branch protection is configured on GitHub, separately from `ci.yml`. The workflow defines when checks run and what they execute; it does not enforce merge restrictions. The human reports verifying CI merge enforcement in [PR #1](https://github.com/olusanyaJ/Tactics_Animator/pull/1): a deliberately failing test blocked merging, and restoring it produced passing CI and allowed merging. See the [recorded human verification](agent-log.md#human-reported-verification--pr-1). The agent has not independently inspected live GitHub settings. This verifies observed enforcement at that time, not every individual protection option or a guarantee that settings remain unchanged; this documentation task does not change them.
