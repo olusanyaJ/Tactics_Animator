@@ -133,3 +133,21 @@ The recorded policy for `main` is:
 - Approving reviews are not required for the current solo workflow. Human review of agent changes remains a project responsibility under `AGENTS.md`.
 
 Branch protection is configured on GitHub, separately from `ci.yml`. The workflow defines when checks run and what they execute; it does not enforce merge restrictions. The human reports verifying CI merge enforcement in [PR #1](https://github.com/olusanyaJ/Tactics_Animator/pull/1): a deliberately failing test blocked merging, and restoring it produced passing CI and allowed merging. See the [recorded human verification](agent-log.md#human-reported-verification--pr-1). The agent has not independently inspected live GitHub settings. This verifies observed enforcement at that time, not every individual protection option or a guarantee that settings remain unchanged; this documentation task does not change them.
+
+## Codex safety setup
+
+I configure Codex globally in ~/.codex/config.toml with these settings:
+
+```toml
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+
+[sandbox_workspace_write]
+network_access = false
+```
+
+The repository's AGENTS.md requires explicit approval before pushing to GitHub and prohibits reading or copying real credentials.
+
+I tested the push approval rule in a fresh Codex session. Codex asked for approval before any network operation. I declined, and it reported performing no fetch or push.
+
+I have verified the configuration and the approval behavior. A separate test of the sandbox's network restriction remains outstanding.

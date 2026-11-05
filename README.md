@@ -4,6 +4,8 @@ A football tactics animation tool in development. The goal is to turn written ta
 
 For example: “Mainoo drops between the centre-backs, Dalot overlaps.”
 
+[![CI](https://github.com/olusanyaJ/Tactics_Animator/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/olusanyaJ/Tactics_Animator/actions/workflows/ci.yml)
+
 ## Current status
 
 The workspace foundation and initial smoke tests are complete:

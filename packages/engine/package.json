@@ -24,5 +24,8 @@
     }
   },
   "packageManager": "pnpm@12.16.1",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@tactics/schema": "workspace:*"
+  }
 }
