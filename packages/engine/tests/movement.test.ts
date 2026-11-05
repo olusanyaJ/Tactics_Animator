@@ -74,7 +74,7 @@ test('rejects an invalid numeric result', () => {
 });
 
 // this test rejects an infinite progress and returns the range error
-test('rejects infinte progress', () => {
+test('rejects infinite progress', () => {
   const playerMovement = {
     playerId: 'Mainoo',
     from: { x: 10, y: 30 },

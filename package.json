@@ -2,9 +2,17 @@
   "name": "tactics-animator",
   "version": "1.0.0",
   "private": true,
-  "description": "",
-  "dependencies": {
-    "@tactics/schema": "workspace:*"
+  "description": "Football tactics animation tool that turns written instructions into animated pitch graphics.",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.19.2",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.5.0",
+    "prettier": "^3.9.10",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^4.1.12"
   },
   "main": "",
   "engines": {
@@ -30,16 +38,5 @@
     }
   },
   "packageManager": "pnpm@12.16.1",
-  "type": "module",
-  "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@types/node": "^24.19.2",
-    "eslint": "^10.14.0",
-    "eslint-config-prettier": "^10.1.8",
-    "globals": "^16.5.0",
-    "prettier": "^3.9.10",
-    "typescript": "~5.9.3",
-    "typescript-eslint": "^8.72.1",
-    "vitest": "^4.1.12"
-  }
+  "type": "module"
 }
